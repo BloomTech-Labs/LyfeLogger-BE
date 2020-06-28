@@ -153,7 +153,7 @@ no body
 ```
 
 
-#### PUT *api/users/:id*
+#### put */life_logger/auth/users/id*
 
 Updating a company profile. You must be logged in as owner of the company. Only company_name and description are required, other fields are optional. You cannot modify id, username, password, or user_type
 
