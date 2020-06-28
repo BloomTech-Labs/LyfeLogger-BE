@@ -150,7 +150,7 @@ Response:
 status 200 
 no body
 ```
-```
+
 
 
 #### put */life_logger/auth/users/id*
