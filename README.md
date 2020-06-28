@@ -150,103 +150,10 @@ Response:
 status 200 
 no body
 ```
+```
+
+
 #### PUT *api/users/:id*
-
-Updating an user profile. You must be logged in as owner of the user account. You cannot modify id, username, password, or user_type. Only required field is name. Other fields are optional.
-
-Request:
-```javascript
-{
-	"name": "Jonathan Chen" // required
-}
-```
-Response:
-```javascript
-{
-    "id": 1,
-    "username": "jonathanchen",
-    "user_type": true,
-    "name": "Jonathan Chen",
-    "experience": "Buidling some terminal game from Java",
-    "industry": "Technology",
-    "imgUrl": ""
-}
-```
-
-## **Company Routes**
-[back to top](#api-user-guide)
-
-#### GET *api/companies*
-
-Returns an array of companies. Available to all users.
-
-Request:
-```javascript
-// No input needed
-```
-Response:
-```javascript
-[
-    {
-        "id": 1,
-        "username": "lambdaschool",
-        "user_type": false,
-        "company_name": "Lambda School",
-        "description": "Testing a random description here",
-        "industry": "Education",
-        "mission_statement": "Revolutionazing education. Your new career starts here.",
-        "imgUrl": "",
-        "openPositions": "Teachers, Developers"
-    },
-    {
-        "id": 2,
-        "username": "apple",
-        "user_type": false,
-        "company_name": "Apple Inc",
-        "description": "Creating the best products for you",
-        "industry": "Technology",
-        "mission_statement": "Make your wallet bleed.",
-        "imgUrl": "",
-        "openPositions": "Developers, Desginers"
-    },
-    {
-        "id": 3,
-        "username": "google",
-        "user_type": false,
-        "company_name": "Google Inc",
-        "description": "Testing a random description here, another one",
-        "industry": "Technology",
-        "mission_statement": "Organize the world's information.",
-        "imgUrl": "",
-        "openPositions": "Engineers"
-    }
-]
-```
-
-#### GET *api/companies/:id*
-
-Return a company object at the specified id
-
-Request:
-```javascript
-// No input needed
-```
-Response:
-```javascript
-{
-    "id": 1,
-    "username": "lambdaschool",
-    "user_type": false,
-    "company_name": "Lambda School",
-    "description": "Testing a random description here",
-    "industry": "Education",
-    "mission_statement": "Revolutionazing education. Your new career starts here.",
-    "imgUrl": "",
-    "openPositions": "Teachers, Developers"
-}
-```
-
-#### PUT *api/companies/:id*
 
 Updating a company profile. You must be logged in as owner of the company. Only company_name and description are required, other fields are optional. You cannot modify id, username, password, or user_type
 
