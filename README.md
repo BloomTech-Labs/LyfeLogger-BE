@@ -1,14 +1,14 @@
 # LyfeLogger-BE
-A restFul API utilizing node/express/PG
+A restFul API utilizing node/express/PG/JSON WebTokens
 # **API User Guide**
 
 |**Table of Contents:**|
 |-|
-|[Authentication Routes](#Authentication-Routes)|
-|[User Routes](#User-Routes)|
-|[task Routes](#task-Routes)|
+|[Authentication Routes](#Authentication-Routes)| Do Not Require Token
+|[User Routes](#User-Routes)| Do Not Require Token
+|[task Routes](#task-Routes)| Require Token
 
-
+Tokens Encrypted through Password and Email.
 
 ### **Authentication Routes**
 
