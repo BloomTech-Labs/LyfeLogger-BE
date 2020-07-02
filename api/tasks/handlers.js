@@ -37,8 +37,8 @@ const insertTaskHandler = (req, res) => {
     is_complete: is_complete,
     task_notes: task_notes
   };
-
-  Helper.findByTaskName(task_name)
+try{
+    Helper.findByTaskName(task_name)
     .then(([name]) => {
       if (name) {
         TaskObjectForInsert.task_id = name.id;
@@ -51,7 +51,7 @@ const insertTaskHandler = (req, res) => {
           .catch((err) => res.status(500).json({ message: err }));
       }
     })  
-    .catch((err) => res.status(500).json({ message: err }));
+    
 
     Helper.findByCategoryName(category_name)
     .then(([name]) => {
@@ -67,19 +67,21 @@ const insertTaskHandler = (req, res) => {
           })
           .catch((err) => res.status(500).json({ message: err }));
       }
-    })  
+    }) 
 
+}
+catch(err){
+    res.status(500).json({ message: err })
+}
+finally{
+    Helper.add(TaskObjectForInsert)
+    .then(resp => {
+      res.status(200).json({data: resp});
+    })
     .catch((err) => res.status(500).json({ message: err }));
+}
 
-  //   Helper.add(taskData)
-  //   .then(response => {
-  //     res.status(200).json({ data: response });
-  //   })
-  Helper.add(TaskObjectForInsert)
-  .then(resp => {
-    res.status(200).json({data: resp});
-  })
-  .catch((err) => res.status(500).json({ message: err }));
+
 
 };
 
