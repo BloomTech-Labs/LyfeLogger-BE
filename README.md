@@ -303,3 +303,41 @@ Response:
     ]
 }
 ```
+
+#### Post */life_logger/auth/tasks/insertTask*
+
+Adds A task Object
+***notes
+the end point will take a task name and category name. it will check both tables to see if they exist. if it exists it will not create a new one but instead use the old one. if it does not exist it will create a new one that can be reused. this along with the joins is whats giving us the ability to use many to many schema in the relational database***
+
+Request:
+```javascript
+{
+"user_id": 1, => is of the current user
+"task_name": "Change AC air f", => 
+"category_name": "Work",
+"due_date": "909g",
+"all_day": 0,
+"task_notes": "salf sf asgf adsga",
+ "is_complete": 0
+}
+```
+Response:
+```
+{
+    "data": [
+        {
+            "id": 16,
+            "task_id": 8,
+            "user_id": 1,
+            "task_notes": "salf sf asgf adsga",
+            "category_id": 5,
+            "due_date": "909g",
+            "all_day": 0,
+            "is_complete": 0
+        }
+    ]
+}
+```
+
+
