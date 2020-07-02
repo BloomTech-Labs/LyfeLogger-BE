@@ -313,8 +313,8 @@ the end point will take a task name and category name. it will check both tables
 Request:
 ```javascript
 {
-"user_id": 1, => is of the current user
-"task_name": "Change AC air f", => 
+"user_id": 1, 
+"task_name": "Change AC air f", 
 "category_name": "Work",
 "due_date": "909g",
 "all_day": 0,
