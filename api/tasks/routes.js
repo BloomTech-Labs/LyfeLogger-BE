@@ -5,7 +5,8 @@ const router = express.Router();
 const {
     findByIDHandler,
     getAllTasksHandler,
-    findAllTasksByUserIDHandler
+    findAllTasksByUserIDHandler,
+    insertTaskHandler
 } = require("./handlers");
 
 const {
@@ -17,6 +18,8 @@ const {
 router.get("/", getAllTasksHandler);
 router.get("/findById/user=:user_id/:task_id", userIdExists, findByIDHandler);
 router.get("/findByUserId/:user_id", userIdExists, findAllTasksByUserIDHandler);
+router.post("/insertTask", insertTaskHandler);
+
 
 
 

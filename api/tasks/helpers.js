@@ -9,6 +9,10 @@ module.exports = {
   remove,
   getAllTasks,
   findByTaskId,
+  findByTaskName,
+  addTaskName,
+  addCategoryName,
+  findByCategoryName
 };
 
 function findBy(filter, user_id) {
@@ -27,7 +31,8 @@ function getAllTasks() {
       "task_notes",
       "due_date",
       "all_day",
-      "is_complete"
+      "is_complete",
+      "tasks.user_id as user_id"
     );
 
   // .select("*")
@@ -76,10 +81,31 @@ function findByTaskId(id) {
   return db("tasks").select("*").where({ id });
 }
 
+function findByTaskName(name) {
+    return db("task_names").select("*").where({ name });
+  }
+
+  function findByCategoryName(name) {
+    return db("categories").select("*").where({ name });
+  }
+
 // Add a new task, returns the whole task
 function add(task) {
-  return db("tasks").insert(task).returning("id");
+  return db("tasks").insert(task, "id")
+  .then(([id]) => {
+      return findByTaskId(id)
+  })
 }
+
+function addTaskName(name) {
+    return db("task_names").insert({name: name}, "id")
+  }
+
+
+function addCategoryName(name) {
+    return db("categories").insert({name: name}, "id")
+  }
+
 
 // Update existing task, returns the whole task
 function update(id, changes, user_id) {
