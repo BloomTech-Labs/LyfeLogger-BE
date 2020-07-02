@@ -340,4 +340,19 @@ Response:
 }
 ```
 
+#### Delte */life_logger/auth/tasks/deleteTask/:task_id/:user_id*
+
+deletes A task Object
+***notes
+the end point will take a task name and category name. it will check both tables to see if they exist. if it exists it will not create a new one but instead use the old one. if it does not exist it will create a new one that can be reused. this along with the joins is whats giving us the ability to use many to many schema in the relational database***
+
+Request:
+```javascript
+none => comoes from parameters
+```
+Response:
+```
+{message: "task deleted"}
+```
+
 
