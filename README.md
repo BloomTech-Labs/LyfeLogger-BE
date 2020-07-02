@@ -6,6 +6,8 @@ A restFul API utilizing node/express/PG
 |-|
 |[Authentication Routes](#Authentication-Routes)|
 |[User Routes](#User-Routes)|
+|[task Routes](#task-Routes)|
+
 
 
 ### **Authentication Routes**
@@ -181,3 +183,7 @@ will return user object to show changes
     }
 }
 ```
+
+
+## **Task Routes**
+[back to top](#task-Routes)
