@@ -187,3 +187,119 @@ will return user object to show changes
 
 ## **Task Routes**
 [back to top](#task-Routes)
+
+#### GET */life_logger/auth/tasks/*
+
+Return a list of all tasks in Database
+
+Request:
+```javascript
+// No input needed
+```
+Response:
+```
+{
+    "data": [
+        {
+            "id": 1,
+            "category_name": "Work",
+            "task_name": "Change AC air filter",
+            "task_notes": "Testing the test.",
+            "due_date": "2020-02-29 19:10:25-07",
+            "all_day": 1,
+            "is_complete": 0,
+	    "user_id": 1
+        },
+        {
+            "id": 2,
+            "category_name": "Home",
+            "task_name": "Change fire alarm batteries",
+            "task_notes": "Testing the test.",
+            "due_date": "2020-03-22 01:10:25-07",
+            "all_day": 1,
+            "is_complete": 0,
+	    "user_id": 2
+        },
+        {
+            "id": 3,
+            "category_name": "Home",
+            "task_name": "Change fire alarm batteries",
+            "task_notes": "Testing the test.",
+            "due_date": "2020-04-22 15:10:25-07",
+            "all_day": 0,
+            "is_complete": 0,
+	    "user_id": 3
+        }
+    ]
+}
+```
+#### GET */life_logger/auth/tasks/findById/user=:user_id/:task_id*
+
+Returns a specific task object for a specific user both by ID
+
+Request:
+```javascript
+// No input needed.   Comes from Parameters
+```
+Response:
+```
+{
+    "data": [
+        {
+            "id": 1,
+            "category_name": "Work",
+            "task_name": "Change AC air filter",
+            "task_notes": "Testing the test.",
+            "due_date": "2020-02-29 19:10:25-07",
+            "all_day": 1,
+            "is_complete": 0,
+	       "user_id": 1
+	    
+
+        }
+     
+      
+    ]
+}
+```
+#### GET */life_logger/auth/tasks/findByUserId/:user_id*
+
+Returns a list of task objects for a specific user by ID
+
+Request:
+```javascript
+// No input needed.   Comes from Parameters
+```
+Response:
+```
+{
+    "data": [
+        {
+            "id": 1,
+            "category_name": "Work",
+            "task_name": "Change AC air filter",
+            "task_notes": "Testing the test.",
+            "due_date": "2020-02-29 19:10:25-07",
+            "all_day": 1,
+            "is_complete": 0,
+	       "user_id": 1
+	    
+
+        },
+	 {
+            "id": 1,
+            "category_name": "Work",
+            "task_name": "Change AC air filter",
+            "task_notes": "Testing the test.",
+            "due_date": "2020-02-29 19:10:25-07",
+            "all_day": 1,
+            "is_complete": 0,
+	       "user_id": 1
+	    
+
+        }
+     
+      
+    ]
+}
+```
