@@ -32,7 +32,23 @@ const taskExists = (req, res, next) => {
 
 };
 
+
+const taskHasProperContent = (req, res, next) => {
+    const { task_name, category_name, user_id, due_date } = req.body;
+   
+        if (task_name && category_name && user_id && due_date) {
+            next()
+        } else {
+            res.status(400).json({ Message: "must contain task_name, category_name, user_id, due_date" });
+
+        }
+     
+  
+  
+  };
+
 module.exports = {
   userIdExists,
   taskExists,
+  taskHasProperContent
 };

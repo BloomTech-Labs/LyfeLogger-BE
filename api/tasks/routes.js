@@ -12,14 +12,15 @@ const {
 
 const {
     userIdExists,
-    taskExists
+    taskExists,
+    taskHasProperContent
 } = require("./validators");
 
 
 router.get("/", getAllTasksHandler);
 router.get("/findById/user=:user_id/:task_id", userIdExists, findByIDHandler);
 router.get("/findByUserId/:user_id", userIdExists, taskExists, findAllTasksByUserIDHandler);
-router.post("/insertTask", insertTaskHandler);
+router.post("/insertTask", taskHasProperContent, insertTaskHandler);
 router.delete("/deleteTask/:task_id/:user_id", taskExists, deleteTaskHandler);
 
 
