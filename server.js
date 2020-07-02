@@ -1,6 +1,7 @@
 
 const express = require("express")
-const configureFunc = require("./middleware/ConfigureAPI")
+const configureFunc = require("./middleware/configureAPI")
+
 // const restricted = require("./middleware/Restrict");
 // const userRouter = require("./API/users/routes")
 // const taskRouter = require("./API/tasks/routes")
