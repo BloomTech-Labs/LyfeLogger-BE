@@ -1,7 +1,7 @@
 
 const express = require("express")
 const configureFunc = require("./middleware/ConfigureAPI")
-// const restricted = require("./middleware/Restrict");
+const restricted = require("./middleware/Restrict");
 const userRouter = require("./API/users/routes")
 const taskRouter = require("./API/tasks/routes")
 
@@ -15,7 +15,7 @@ const server = express()
 configureFunc(server)
 //Routers
 server.use("/life_logger/auth/users", userRouter)
-server.use("/life_logger/auth/tasks", taskRouter)
+server.use("/life_logger/auth/tasks",restricted, taskRouter)
 
 
 

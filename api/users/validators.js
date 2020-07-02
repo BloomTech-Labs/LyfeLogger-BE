@@ -13,7 +13,7 @@ const validateRegistration = (req, res, next) => {
     !user.email 
   ) {
     res.status(400).json({
-      message: "must include username, password, birthday, and email"
+      message: "must include username, password, , and email"
     });
   }
 
