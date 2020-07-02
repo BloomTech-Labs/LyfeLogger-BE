@@ -1,4 +1,5 @@
 const Helper = require("./helpers");
+const { response } = require("../../server");
 
 const getAllTasksHandler = (req, res) => {
   Helper.getAllTasks()
@@ -81,9 +82,20 @@ const insertTaskHandler = (req, res) => {
 
 };
 
+const deleteTaskHandler = (req, res) => {
+    const { task_id, user_id } = req.params;
+    const id = task_id
+    Helper.remove(id, user_id)
+      .then((tasks) => {
+        res.status(201).json({message: "task deleted"});
+      })
+      .catch((err) => res.status(500).json({ message: err }));
+  };
+
 module.exports = {
   findByIDHandler,
   getAllTasksHandler,
   findAllTasksByUserIDHandler,
   insertTaskHandler,
+  deleteTaskHandler
 };

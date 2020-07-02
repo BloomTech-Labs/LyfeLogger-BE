@@ -6,7 +6,8 @@ const {
     findByIDHandler,
     getAllTasksHandler,
     findAllTasksByUserIDHandler,
-    insertTaskHandler
+    insertTaskHandler,
+    deleteTaskHandler
 } = require("./handlers");
 
 const {
@@ -17,8 +18,10 @@ const {
 
 router.get("/", getAllTasksHandler);
 router.get("/findById/user=:user_id/:task_id", userIdExists, findByIDHandler);
-router.get("/findByUserId/:user_id", userIdExists, findAllTasksByUserIDHandler);
+router.get("/findByUserId/:user_id", userIdExists, taskExists, findAllTasksByUserIDHandler);
 router.post("/insertTask", insertTaskHandler);
+router.delete("/deleteTask/:task_id/:user_id", taskExists, deleteTaskHandler);
+
 
 
 
