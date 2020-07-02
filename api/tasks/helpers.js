@@ -95,6 +95,7 @@ function add(task) {
   .then(([id]) => {
       return findByTaskId(id)
   })
+  .catch(err => console.error(err))
 }
 
 function addTaskName(name) {
