@@ -12,7 +12,7 @@ Tokens Encrypted through Password and Email.
 
 ### **Authentication Routes**
 
-Server located at: not yet deployed
+Server located at: https://life-logger-labs.herokuapp.com
 
 ###  **User Registration**:
 
