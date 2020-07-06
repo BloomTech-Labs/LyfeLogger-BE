@@ -28,8 +28,6 @@ const taskExists = (req, res, next) => {
       }
     })
     .catch((err) => res.status(500).json({ message: err }));
-
-
 };
 
 
@@ -47,8 +45,47 @@ const taskHasProperContent = (req, res, next) => {
   
   };
 
+  const taskNameExists = (req, res, next) => {
+    const {task_name} = req.body
+    helpers.findByTaskName(task_name)
+    .then(([name]) => {
+      if (name) {
+        next()
+      }
+      else{
+          helpers.addTaskName(task_name)
+          .then(([id]) => {
+            next()
+          })
+          .catch((err) => res.status(500).json({ message: err }));
+      }
+    })  
+    .catch((err) => res.status(500).json({ message: err }));
+  };
+  const categoryNameExists = (req, res, next) => {
+    const {category_name} = req.body
+    helpers.findByCategoryName(category_name)
+    .then(([name]) => {
+      if (name) {
+        next()
+       
+      }
+      else{
+          helpers.addCategoryName(category_name)
+          .then(([id]) => {
+            next()
+            
+          })
+          .catch((err) => res.status(500).json({ message: err }));
+      }
+    })  
+    .catch((err) => res.status(500).json({ message: err }));
+  };
+
 module.exports = {
   userIdExists,
   taskExists,
-  taskHasProperContent
+  taskHasProperContent,
+  taskNameExists,
+  categoryNameExists
 };
