@@ -316,7 +316,7 @@ Request:
 "user_id": 1, 
 "task_name": "Change AC air f", 
 "category_name": "Work",
-"due_date": "909g",
+"due_date": "2020-02-29 19:10:25-07",  ====> must be datetime format
 "all_day": 0,
 "task_notes": "salf sf asgf adsga",
  "is_complete": 0
