@@ -348,7 +348,7 @@ the end point will take a task name and category name. it will check both tables
 
 Request:
 ```javascript
-none => comoes from parameters
+none => comes from parameters
 ```
 Response:
 ```
